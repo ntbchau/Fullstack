@@ -44,7 +44,7 @@ let editCRUD = async (req, res) => {
 
 
 }
-let putCRUD = async (req, res) => {
+let updateCRUD = async (req, res) => {
     let data = req.body;
     let allUser = await CRUDService.updateUser(data);
     //console.log(data)
@@ -52,11 +52,20 @@ let putCRUD = async (req, res) => {
         dataTable: allUser
     })
 }
+let deleteCRUD = async (req, res) => {
+    let id = req.query.id;
+    console.log(id);
+    await CRUDService.deleteUser(id);
+    return res.send("delete controller")
+}
+
+
 module.exports = {
     getHomePage: getHomePage,
     getCRUD: getCRUD,
     postCRUD: postCRUD,
     displayCRUD: displayCRUD,
     editCRUD: editCRUD,
-    putCRUD: putCRUD,
+    updateCRUD: updateCRUD,
+    deleteCRUD: deleteCRUD,
 } 
