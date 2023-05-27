@@ -11,7 +11,7 @@ let handleLogin = async (req, res) => {
         })
     }
 
-    let userData = await userService.handleUserLogin(email, password)
+    let userData = await userService.handleUserLogin(email, password);
 
     return res.status(200).json({
         user: userData.user ? userData.user : {},
@@ -21,6 +21,20 @@ let handleLogin = async (req, res) => {
 
     })
 }
+
+let handleGetAllUser = async (req, res) => {
+    let id = req.body.id //all or id
+    let users = await userService.getAllUsers(id)
+    console.log(users)
+    return res.status(200).json({
+        errCode: '0',
+        message: 'get all user api',
+        users
+    })
+
+
+}
 module.exports = {
-    handleLogin: handleLogin
+    handleLogin: handleLogin,
+    handleGetAllUser: handleGetAllUser,
 }

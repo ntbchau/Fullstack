@@ -4,7 +4,12 @@
     "password": null,
     "database": "chau",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "query": {
+      "raw": true
+    },
+    "timezone": "+02:00",
+    "logging": false
   },
   "test": {
     "username": "root",
